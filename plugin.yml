@@ -1,0 +1,17 @@
+---
+# Base generated with ImagicalPlugCreator by Ad5001 (C) 2017 for Ad5001
+# link: https://ad5001.eu
+name: FloatingTexts
+author: Ad5001
+main: Ad5001\FloatingTexts\Main
+version: 1.0
+api: [3.0.0, 3.0.0-ALPHA3]
+commands:
+    createfloat:
+        description: Create a floating text !
+        usage: /createfloat <text...>
+        permission: floatingtexts.cmd
+permissions:
+    floatingtexts.cmd:
+        default: op
+...
