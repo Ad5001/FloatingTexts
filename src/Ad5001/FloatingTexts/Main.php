@@ -19,12 +19,14 @@ class Main extends PluginBase implements \pocketmine\event\Listener {
 		public function onEnable() {
 			$this->getServer()->getPluginManager()->registerEvents($this, $this);
 			$this->sessions = [];
-		}
-
-		/*
-		Called when the plugin disables
-		*/
-		public function onDisable() {
+			foreach ($this->getServer()->getDefaultLevel()->getEntities() as $et) {
+				if(isset($et->namedtag->isUsedToFloat)) {
+					$et->addEffect(\pocketmine\entity\Effect::getEffectByName("invisibility")->setDuration(99999)->setVisible(false));
+                	$et->setNameTagAlwaysVisible(true);
+            		$et->setNameTagVisible(true);
+            		$et->setImmobile(true);
+				}
+			}
 		}
 
 		/*
@@ -83,11 +85,11 @@ class Main extends PluginBase implements \pocketmine\event\Listener {
 		*/
 		public function onLevelLoad(\pocketmine\event\level\LevelLoadEvent $event) {
 			foreach ($event->getLevel()->getEntities() as $et) {
-				if(isset($event->getEntity()->namedtag->isUsedToFloat)) {
-					$event->getEntity()->addEffect(\pocketmine\entity\Effect::getEffectByName("invisibility")->setDuration(99999)->setVisible(false));
-                	$event->getEntity()->setNameTagAlwaysVisible(true);
-            		$event->getEntity()->setNameTagVisible(true);
-            		$event->getEntity()->setImmobile(true);
+				if(isset($et->namedtag->isUsedToFloat)) {
+					$et->addEffect(\pocketmine\entity\Effect::getEffectByName("invisibility")->setDuration(99999)->setVisible(false));
+                	$et->setNameTagAlwaysVisible(true);
+            		$et->setNameTagVisible(true);
+            		$et->setImmobile(true);
 				}
 			}
 		}
