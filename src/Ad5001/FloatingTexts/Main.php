@@ -30,7 +30,7 @@ class Main extends PluginBase implements \pocketmine\event\Listener {
 		@param     $args          array
 		return bool
 		*/
-		public function onCommand(\pocketmine\command\CommandSender $sender, \pocketmine\command\Command $cmd, $label, array $args): bool {
+		public function onCommand(\pocketmine\command\CommandSender $sender, \pocketmine\command\Command $cmd, string $label, array $args): bool {
 			switch($cmd->getName()) {
 				case "createfloat":
 				if($sender instanceof Player) {
