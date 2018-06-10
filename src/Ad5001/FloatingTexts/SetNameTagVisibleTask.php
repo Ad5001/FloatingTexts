@@ -18,7 +18,7 @@ class SetNameTagVisibleTask extends \pocketmine\scheduler\Task {
     @return void
     */
     public function onRun($tick) {
-        foreach($this->getOwner()->getServer()->getLevels() as $level) {
+        foreach($this->owner->getServer()->getLevels() as $level) {
             foreach ($level->getEntities() as $et) {
 				if(isset($et->namedtag->isUsedToFloat)) {
                 	$et->setNameTagAlwaysVisible(true);
