@@ -19,7 +19,7 @@ class Main extends PluginBase implements \pocketmine\event\Listener {
 		public function onEnable() {
 			$this->getServer()->getPluginManager()->registerEvents($this, $this);
 			$this->sessions = [];
-			$this->getServer()->getScheduler()->scheduleRepeatingTask(new SetNameTagVisibleTask($this),10);
+			$this->getScheduler()->scheduleRepeatingTask(new SetNameTagVisibleTask($this),10);
 		}
 
 		/*
