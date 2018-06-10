@@ -54,7 +54,7 @@ class Main extends PluginBase implements \pocketmine\event\Listener {
 			if($event instanceof \pocketmine\event\entity\EntityDamageByEntityEvent) {
 				if($event->getDamager() instanceof Player &&
 				isset($this->sessions[$event->getDamager()->getName()])) {
-					$event->getEntity()->addEffect(\pocketmine\entity\Effect::getEffectByName("invisibility")->setAmbient(true)->setVisible(false));
+					$event->getEntity()->addEffect(new \pocketmine\entity\EffectInstance(\pocketmine\entity\Effect::getEffectByName("invisibility"))->setAmbient(true)->setVisible(false));
 					$event->getEntity()->setNameTag($this->sessions[$event->getDamager()->getName()]);
                 	$event->getEntity()->setNameTagAlwaysVisible(true);
             		$event->getEntity()->setNameTagVisible(true);
