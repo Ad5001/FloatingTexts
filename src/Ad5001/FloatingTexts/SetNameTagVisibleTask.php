@@ -8,7 +8,7 @@ use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Entity;
-class SetNameTagVisibleTask extends \pocketmine\scheduler\PluginTask {
+class SetNameTagVisibleTask extends \pocketmine\scheduler\Task {
 	public $owner;
     public function __construct($owner){$this->owner = $owner;}
 	
