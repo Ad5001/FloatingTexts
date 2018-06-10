@@ -9,7 +9,9 @@ use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Entity;
 class SetNameTagVisibleTask extends \pocketmine\scheduler\PluginTask {
-
+	public $owner;
+    public function __construct($owner){$this->owner = $owner;}
+	
     /*
     RUns when the task runs
     @param     $tick    int
