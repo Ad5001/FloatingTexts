@@ -8,17 +8,19 @@ use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Entity;
-class SetNameTagVisibleTask extends \pocketmine\scheduler\PluginTask {
-
+class SetNameTagVisibleTask extends \pocketmine\scheduler\Task {
+	public $owner;
+    public function __construct($owner){$this->owner = $owner;}
+	
     /*
     RUns when the task runs
     @param     $tick    int
     @return void
     */
     public function onRun($tick) {
-        foreach($this->getOwner()->getServer()->getLevels() as $level) {
+        foreach($this->owner->getServer()->getLevels() as $level) {
             foreach ($level->getEntities() as $et) {
-				if(isset($et->namedtag->isUsedToFloat)) {
+				if(isset($et->namedtag->getValue()->isUsedToFloat)){
                 	$et->setNameTagAlwaysVisible(true);
             		$et->setNameTagVisible(true);
             		$et->setImmobile(true);
